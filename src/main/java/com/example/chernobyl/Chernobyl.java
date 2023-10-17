@@ -1,5 +1,6 @@
 package com.example.chernobyl;
 
+import com.example.chernobyl.blocks.UraniumOre;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -64,6 +65,8 @@ public class Chernobyl
     public Chernobyl()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        UraniumOre.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
