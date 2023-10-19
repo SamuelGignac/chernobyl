@@ -1,6 +1,7 @@
 package com.example.chernobyl;
 
 import com.example.chernobyl.blocks.UraniumOre;
+import com.example.chernobyl.items.Uranium;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -66,6 +67,7 @@ public class Chernobyl
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        Uranium.register(modEventBus);
         UraniumOre.register(modEventBus);
 
         // Register the commonSetup method for modloading
@@ -106,6 +108,8 @@ public class Chernobyl
     {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+            event.accept(Uranium.URANIUM);
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS)
             event.accept(UraniumOre.URANIUM_ORE);
     }
