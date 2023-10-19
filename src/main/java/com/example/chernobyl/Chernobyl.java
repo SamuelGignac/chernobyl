@@ -106,6 +106,8 @@ public class Chernobyl
     {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS)
+            event.accept(UraniumOre.URANIUM_ORE);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
