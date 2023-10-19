@@ -1,21 +1,59 @@
 {
-  "type" : "minecraft:block",
-  "pools" : [
+  "type": "minecraft:block",
+  "pools": [
     {
-      "bonus_rolls" : 0.0,
-      "conditions" : [
+      "bonus_rolls": 0.0,
+      "entries": [
         {
-          "condition" : "minecraft:survives_explosion"
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "chernobyl:uranium_ore"
+            },
+            {
+              "type": "minecraft:item",
+              "functions": [
+                {
+                  "add": false,
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "max": 3.0,
+                    "min": 1.0
+                  },
+                  "function": "minecraft:set_count"
+                },
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "function": "minecraft:apply_bonus"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "chernobyl:uranium"
+            }
+          ]
         }
       ],
-      "entries" : [
-        {
-          "type" : "minecraft:item",
-          "name" : "chernobyl:uranium"
-        }
-      ],
-      "rolls" : 1.0
+      "rolls": 1.0
     }
   ],
-  "random_sequence" : "chernobyl:blocks/uranium_ore"
+  "random_sequence": "chernobyl:blocks/uranium_ore"
 }
