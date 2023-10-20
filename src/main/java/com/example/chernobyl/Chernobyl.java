@@ -1,6 +1,8 @@
 package com.example.chernobyl;
 
 import com.example.chernobyl.blocks.UraniumOre;
+import com.example.chernobyl.blocks.PlutoniumOre;
+import com.example.chernobyl.items.Plutonium;
 import com.example.chernobyl.items.Uranium;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -104,16 +106,18 @@ public class Chernobyl
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
+    private void addCreative(BuildCreativeModeTabContentsEvent event){
+        if (event.getTabKey().equals(CreativeModeTabs.BUILDING_BLOCKS)) {
             event.accept(EXAMPLE_BLOCK_ITEM);
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+        } else if (event.getTabKey().equals(CreativeModeTabs.INGREDIENTS)) {
             event.accept(Uranium.URANIUM);
-        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS)
+            event.accept(Plutonium.PLUTONIUM);
+        } else if (event.getTabKey().equals(CreativeModeTabs.NATURAL_BLOCKS)) {
             event.accept(UraniumOre.URANIUM_ORE);
-    }
+            event.accept(PlutoniumOre.PLUTONIUM_ORE);
+        }
 
+    }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
