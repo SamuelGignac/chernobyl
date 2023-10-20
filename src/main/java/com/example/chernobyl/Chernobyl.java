@@ -72,6 +72,9 @@ public class Chernobyl
         Uranium.register(modEventBus);
         UraniumOre.register(modEventBus);
 
+        Plutonium.register(modEventBus);
+        PlutoniumOre.register(modEventBus);
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
