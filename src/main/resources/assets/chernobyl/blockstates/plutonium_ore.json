@@ -1,0 +1,7 @@
+{
+  "variants" : {
+    "" : {
+      "model" : "chernobyl:block/plutonium_ore"
+    }
+  }
+}
