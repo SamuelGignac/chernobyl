@@ -4,7 +4,6 @@ import com.example.chernobyl.Chernobyl;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
@@ -16,11 +15,11 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-public class UraniumOre {
+public class PlutoniumOre {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Chernobyl.MODID);
 
-    public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore",
+    public static final RegistryObject<Block> PLUTONIUM_ORE = registerBlock("plutonium_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIAMOND_ORE), UniformInt.of(3,6))); // todo : custom properties
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
@@ -36,5 +35,4 @@ public class UraniumOre {
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
-
 }
