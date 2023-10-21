@@ -4,13 +4,12 @@ package com.example.chernobyl.init;
 import com.example.chernobyl.Chernobyl;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,6 +23,8 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import static com.example.chernobyl.api.block.CBlocks.*;
+import static net.minecraft.world.level.block.Blocks.COBBLESTONE;
+import static net.minecraft.world.level.block.Blocks.DIAMOND_ORE;
 
 public class ModBlocks
 {
@@ -32,28 +33,22 @@ public class ModBlocks
         registerBlocks();
     }
 
+//    TODO: Change Block Properties
     public static void registerBlocks()
     {
 //        Nos Blocks
-        PLUTONIUM_ORE = registerBlock(() -> new Block(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.DIAMOND_ORE)), "plutonium_ore");
-        URANIUM_ORE = registerBlock(() -> new Block(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.DIAMOND_ORE)), "uranium_ore");
-        RANDOM_BLOCK = registerBlock(() -> new Block(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.DIAMOND_ORE)), "random_block");
-    }
+        PLUTONIUM_ORE = registerBlock(
+                () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(DIAMOND_ORE), UniformInt.of(3,6)),
+                "plutonium_ore");
 
-    @OnlyIn(Dist.CLIENT)
-    public static void setRenderTypes()
-    {
-//        RenderType cutoutMippedRenderType = RenderType.cutoutMipped();
-//        RenderType cutoutRenderType = RenderType.cutout();
-//        ItemBlockRenderTypes.setRenderLayer(POTTED_GLOWSHROOM.get(), cutoutRenderType);
-    }
+        URANIUM_ORE = registerBlock(
+                () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(DIAMOND_ORE), UniformInt.of(3,6)),
+                "uranium_ore");
 
-    private static RotatedPillarBlock log(MapColor MapColor, MapColor MapColor2) {
-        return new RotatedPillarBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).ignitedByLava().mapColor((blockState) -> blockState.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MapColor : MapColor2).strength(2.0F).sound(SoundType.WOOD));
-    }
+        RANDOM_BLOCK = registerBlock(
+                () -> new Block(BlockBehaviour.Properties.copy(COBBLESTONE)),
+                "random_block");
 
-    private static RotatedPillarBlock logNonIgniting(MapColor MapColor, MapColor MapColor2) {
-        return new RotatedPillarBlock(BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor((blockState) -> blockState.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MapColor : MapColor2).strength(2.0F).sound(SoundType.WOOD));
     }
 
     public static RegistryObject<Block> registerBlock(Supplier<Block> blockSupplier, String name)
@@ -61,11 +56,6 @@ public class ModBlocks
         RegistryObject<Block> blockRegistryObject = Chernobyl.BLOCK_REGISTER.register(name, blockSupplier);
         Chernobyl.ITEM_REGISTER.register(name, () -> new BlockItem(blockRegistryObject.get(), new Item.Properties()));
         return blockRegistryObject;
-    }
-
-    public static RegistryObject<Block> registerBlockNoBlockItem(Supplier<Block> blockSupplier, String name)
-    {
-        return registerBlock(blockSupplier, null, name);
     }
 
     public static RegistryObject<Block> registerBlock(Supplier<Block> blockSupplier, Supplier<BlockItem> itemBlockSupplier, String name)
@@ -80,20 +70,11 @@ public class ModBlocks
         return blockRegistryObject;
     }
 
-    public static RegistryObject<BlockEntityType<?>> registerBlockEntityType(String name, BlockEntityType.BlockEntitySupplier<?> factoryIn, Supplier<List<Block>> validBlocks)
+    @OnlyIn(Dist.CLIENT)
+    public static void setRenderTypes()
     {
-        return Chernobyl.BLOCK_ENTITY_REGISTER.register(name, () -> BlockEntityType.Builder.of(factoryIn, validBlocks.get().toArray(new Block[0])).build(null));
-    }
-
-    private static Boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
-        return (boolean)true;
-    }
-
-    private static Boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
-        return (boolean)false;
-    }
-
-    private static Boolean ocelotOrParrot(BlockState p_50822_, BlockGetter p_50823_, BlockPos p_50824_, EntityType<?> p_50825_) {
-        return (boolean)(p_50825_ == EntityType.OCELOT || p_50825_ == EntityType.PARROT);
+//        RenderType cutoutMippedRenderType = RenderType.cutoutMipped();
+//        RenderType cutoutRenderType = RenderType.cutout();
+//        ItemBlockRenderTypes.setRenderLayer(POTTED_GLOWSHROOM.get(), cutoutRenderType);
     }
 }
