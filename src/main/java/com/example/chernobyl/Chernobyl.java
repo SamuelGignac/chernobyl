@@ -66,16 +66,9 @@ public class Chernobyl
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_REGISTER = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MODID);
     public static final DeferredRegister<WorldCarver<?>> CARVER_REGISTER = DeferredRegister.create(Registries.CARVER, MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TAB_REGISTER = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-    public static final DeferredRegister<ConfiguredWorldCarver<?>> CONFIGURED_CARVER_REGISTER = DeferredRegister.create(Registries.CONFIGURED_CARVER, MODID);
-    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURE_REGISTER = DeferredRegister.create(Registries.CONFIGURED_FEATURE, MODID);
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPE_REGISTER = DeferredRegister.create(Registries.ENTITY_TYPE, MODID);
     public static final DeferredRegister<Feature<?>> FEATURE_REGISTER = DeferredRegister.create(Registries.FEATURE, MODID);
-    public static final DeferredRegister<Fluid> FLUID_REGISTER = DeferredRegister.create(Registries.FLUID, MODID);
-    public static final DeferredRegister<FluidType> FORGE_FLUID_REGISTER = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, MODID);
     public static final DeferredRegister<Item> ITEM_REGISTER = DeferredRegister.create(Registries.ITEM, MODID);
     public static final DeferredRegister<ParticleType<?>> PARTICLES_REGISTER = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MODID);
-    public static final DeferredRegister<PaintingVariant> PAINTING_VARIANT_REGISTER = DeferredRegister.create(Registries.PAINTING_VARIANT, MODID);
-    public static final DeferredRegister<PlacedFeature> PLACED_FEATURE_REGISTER = DeferredRegister.create(Registries.PLACED_FEATURE, MODID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENT_REGISTER = DeferredRegister.create(Registries.SOUND_EVENT, MODID);
     public static final DeferredRegister<DamageType> DAMAGE_TYPE_REGISTER = DeferredRegister.create(Registries.DAMAGE_TYPE, MODID);
 
@@ -91,17 +84,9 @@ public class Chernobyl
 //        BIOME_REGISTER.register(modEventBus);
         BLOCK_REGISTER.register(modEventBus);
         BLOCK_ENTITY_REGISTER.register(modEventBus);
-//        CARVER_REGISTER.register(modEventBus);
-//        CREATIVE_TAB_REGISTER.register(modEventBus);
-//        CONFIGURED_CARVER_REGISTER.register(modEventBus);
-//        CONFIGURED_FEATURE_REGISTER.register(modEventBus);
-//        ENTITY_TYPE_REGISTER.register(modEventBus);
-//        FEATURE_REGISTER.register(modEventBus);
-//        FLUID_REGISTER.register(modEventBus);
-//        FORGE_FLUID_REGISTER.register(modEventBus);
+        CREATIVE_TAB_REGISTER.register(modEventBus);
         ITEM_REGISTER.register(modEventBus);
 //        PARTICLES_REGISTER.register(modEventBus);
-//        PLACED_FEATURE_REGISTER.register(modEventBus);
 //        SOUND_EVENT_REGISTER.register(modEventBus);
 //        DAMAGE_TYPE_REGISTER.register(modEventBus);
 
@@ -113,7 +98,8 @@ public class Chernobyl
 //        ModBiomes.setup();
 
         // Initialize the creative tab last after blocks and items have been setup
-        modEventBus.addListener(ModCreativeTab::addCreative);
+        ModCreativeTab.setup();
+//        modEventBus.addListener(ModCreativeTab::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -131,63 +117,6 @@ public class Chernobyl
         // Setup tags
         ModTags.setup();
     }
-
-//    public Chernobyl()
-//    {
-//        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-//
-//        Uranium.register(modEventBus);
-//        UraniumOre.register(modEventBus);
-//
-//        Plutonium.register(modEventBus);
-//        PlutoniumOre.register(modEventBus);
-//
-//        // Register the commonSetup method for modloading
-//        modEventBus.addListener(this::commonSetup);
-//
-//        BIOME_REGISTER.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so blocks get registered
-//        BLOCKS.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so items get registered
-//        ITEMS.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so tabs get registered
-//        CREATIVE_MODE_TABS.register(modEventBus);
-//
-//        // Register ourselves for server and other game events we are interested in
-//        MinecraftForge.EVENT_BUS.register(this);
-//
-//        // Register the item to a creative tab
-//        modEventBus.addListener(this::addCreative);
-//
-//        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-//        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-//    }
-//
-//    private void commonSetup(final FMLCommonSetupEvent event)
-//    {
-//        // Some common setup code
-//        LOGGER.info("HELLO FROM COMMON SETUP");
-//
-//        if (Config.logDirtBlock)
-//            LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-//
-//        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-//
-//        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
-//    }
-//
-//    // Add the example block item to the building blocks tab
-//    private void addCreative(BuildCreativeModeTabContentsEvent event){
-//        if (event.getTabKey().equals(CreativeModeTabs.BUILDING_BLOCKS)) {
-//            event.accept(EXAMPLE_BLOCK_ITEM);
-//        } else if (event.getTabKey().equals(CreativeModeTabs.INGREDIENTS)) {
-//            event.accept(Uranium.URANIUM);
-//            event.accept(Plutonium.PLUTONIUM);
-//        } else if (event.getTabKey().equals(CreativeModeTabs.NATURAL_BLOCKS)) {
-//            event.accept(UraniumOre.URANIUM_ORE);
-//            event.accept(PlutoniumOre.PLUTONIUM_ORE);
-//        }
-//    }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

@@ -12,6 +12,7 @@ import net.minecraft.world.level.material.Fluid;
 
 public class ModTags
 {
+//    TODO: Trouver l'utilité de cette classe
     public static void setup()
     {
         Blocks.setup();
