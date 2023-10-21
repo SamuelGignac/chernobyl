@@ -23,7 +23,6 @@ import static com.example.chernobyl.api.CItems.C_ICON;
 public class ModCreativeTab
 {
     private static final List<RegistryObject<Item>> ITEM_BLACKLIST = ImmutableList.of(C_ICON);
-
     private static final List<RegistryObject<Block>> BLOCK_BLACKLIST = ImmutableList.of(RANDOM_BLOCK);
 
     public static void setup()
@@ -62,28 +61,5 @@ public class ModCreativeTab
                             }
                         }).build()
         );
-    }
-
-
-    public static void addCreative(BuildCreativeModeTabContentsEvent event){
-        if (event.getTabKey().equals(CreativeModeTabs.BUILDING_BLOCKS))
-            addNaturalBlock(event);
-        else if (event.getTabKey().equals(CreativeModeTabs.INGREDIENTS))
-            addIngredients(event);
-
-    }
-
-    private static void addIngredients(BuildCreativeModeTabContentsEvent event){
-        for (RegistryObject<Item> items : CItems.getRegisteredItem()) {
-            if (!ITEM_BLACKLIST.contains(items))
-                event.accept(items.get());
-        }
-    }
-
-    private static void addNaturalBlock(BuildCreativeModeTabContentsEvent event){
-        for (RegistryObject<Block> blocks : CBlocks.getRegisteredBlock()) {
-            if (!BLOCK_BLACKLIST.contains(blocks))
-                event.accept(blocks.get());
-        }
     }
 }
