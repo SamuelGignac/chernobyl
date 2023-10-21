@@ -99,7 +99,6 @@ public class Chernobyl
 
         // Initialize the creative tab last after blocks and items have been setup
         ModCreativeTab.setup();
-//        modEventBus.addListener(ModCreativeTab::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
