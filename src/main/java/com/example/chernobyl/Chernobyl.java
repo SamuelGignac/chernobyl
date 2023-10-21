@@ -110,15 +110,9 @@ public class Chernobyl
 
         ModBlocks.setup();
         ModItems.setup();
-//        ModEntities.setup();
-//        ModFeatures.setup();
 //        ModBiomes.setup();
-//        ModParticles.setup();
-//        ModPaintings.setup();
-//        ModSounds.setup();
 
         // Initialize the creative tab last after blocks and items have been setup
-//        ModCreativeTab.setup();
         modEventBus.addListener(ModCreativeTab::addCreative);
     }
 

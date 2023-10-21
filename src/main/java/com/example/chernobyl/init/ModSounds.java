@@ -6,6 +6,7 @@ import com.example.chernobyl.Chernobyl;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.RegistryObject;
+import static com.example.chernobyl.api.CSounds.*;
 
 public class ModSounds
 {
@@ -17,6 +18,7 @@ public class ModSounds
     public static void registerSounds()
     {
         //TODO: Register sounds here
+        NUCLEAR_EXPLOSION = registerSound("nuclear_explosion");
     }
 
     private static RegistryObject<SoundEvent> registerSound(String name)
