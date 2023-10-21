@@ -1,8 +1,8 @@
 
 package com.example.chernobyl.worldgen;
 
-import com.example.chernobyl.api.biome.CBiomes;
-import com.example.chernobyl.api.block.CBlocks;
+import com.example.chernobyl.api.CBiomes;
+import com.example.chernobyl.api.CBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Block;

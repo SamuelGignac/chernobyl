@@ -1,8 +1,8 @@
 
 package com.example.chernobyl.init;
 
-import com.example.chernobyl.api.block.CBlocks;
-import com.example.chernobyl.api.item.CItems;
+import com.example.chernobyl.api.CBlocks;
+import com.example.chernobyl.api.CItems;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -12,8 +12,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
-import static com.example.chernobyl.api.block.CBlocks.RANDOM_BLOCK;
-import static com.example.chernobyl.api.item.CItems.C_ICON;
+import static com.example.chernobyl.api.CBlocks.RANDOM_BLOCK;
+import static com.example.chernobyl.api.CItems.C_ICON;
 
 public class ModCreativeTab
 {

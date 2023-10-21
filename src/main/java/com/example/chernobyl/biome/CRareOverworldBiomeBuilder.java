@@ -1,7 +1,7 @@
 
 package com.example.chernobyl.biome;
 
-import com.example.chernobyl.api.biome.CBiomes;
+import com.example.chernobyl.api.CBiomes;
 import com.example.chernobyl.util.biome.BiomeUtil;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;

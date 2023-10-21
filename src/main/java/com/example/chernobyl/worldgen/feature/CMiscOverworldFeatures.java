@@ -1,6 +1,6 @@
 package com.example.chernobyl.worldgen.feature;
 
-import com.example.chernobyl.api.block.CBlocks;
+import com.example.chernobyl.api.CBlocks;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;

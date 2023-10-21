@@ -4,7 +4,7 @@ package com.example.chernobyl.init;
 import com.example.TerraBlender.Common.src.main.java.terrablender.api.Regions;
 import com.example.TerraBlender.Common.src.main.java.terrablender.api.SurfaceRuleManager;
 import com.example.chernobyl.Chernobyl;
-import com.example.chernobyl.api.biome.CBiomes;
+import com.example.chernobyl.api.CBiomes;
 import com.example.chernobyl.biome.COverworldBiomes;
 import com.example.chernobyl.worldgen.COverworldRegionPrimary;
 import com.example.chernobyl.worldgen.COverworldRegionRare;

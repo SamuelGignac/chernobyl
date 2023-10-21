@@ -1,6 +1,6 @@
 package com.example.chernobyl.biome;
 
-import com.example.chernobyl.api.biome.CBiomes;
+import com.example.chernobyl.api.CBiomes;
 import com.example.chernobyl.init.ModConfig;
 import com.example.chernobyl.util.biome.BiomeUtil;
 import com.mojang.datafixers.util.Pair;

@@ -2,27 +2,18 @@
 package com.example.chernobyl.init;
 
 import com.example.chernobyl.Chernobyl;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.List;
 import java.util.function.Supplier;
 
-import static com.example.chernobyl.api.block.CBlocks.*;
+import static com.example.chernobyl.api.CBlocks.*;
 import static net.minecraft.world.level.block.Blocks.COBBLESTONE;
 import static net.minecraft.world.level.block.Blocks.DIAMOND_ORE;
 

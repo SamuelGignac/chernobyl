@@ -1,6 +1,6 @@
 package com.example.chernobyl.worldgen.feature.misc;
 
-import com.example.chernobyl.api.block.CBlocks;
+import com.example.chernobyl.api.CBlocks;
 import com.example.chernobyl.util.SimpleBlockPredicate;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;

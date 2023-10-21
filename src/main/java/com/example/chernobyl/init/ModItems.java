@@ -7,7 +7,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-import static com.example.chernobyl.api.item.CItems.*;
+import static com.example.chernobyl.api.CItems.*;
 
 public class ModItems
 {

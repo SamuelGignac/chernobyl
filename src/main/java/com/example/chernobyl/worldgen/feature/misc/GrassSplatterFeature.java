@@ -1,7 +1,7 @@
 package com.example.chernobyl.worldgen.feature.misc;
 
 
-import com.example.chernobyl.api.block.CBlocks;
+import com.example.chernobyl.api.CBlocks;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;

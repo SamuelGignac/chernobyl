@@ -1,5 +1,5 @@
 
-package com.example.chernobyl.api.item;
+package com.example.chernobyl.api;
 
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;

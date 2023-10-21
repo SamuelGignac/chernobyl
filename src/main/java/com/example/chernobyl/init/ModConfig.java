@@ -2,7 +2,7 @@
 package com.example.chernobyl.init;
 
 import com.example.chernobyl.Chernobyl;
-import com.example.chernobyl.api.biome.CBiomes;
+import com.example.chernobyl.api.CBiomes;
 import com.example.chernobyl.util.config.JsonUtil;
 import com.google.common.collect.Maps;
 import com.google.gson.reflect.TypeToken;

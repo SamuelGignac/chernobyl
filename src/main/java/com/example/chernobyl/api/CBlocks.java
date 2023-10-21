@@ -1,4 +1,4 @@
-package com.example.chernobyl.api.block;
+package com.example.chernobyl.api;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;

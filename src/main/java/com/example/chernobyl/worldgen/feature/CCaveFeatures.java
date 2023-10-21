@@ -1,7 +1,7 @@
 
 package com.example.chernobyl.worldgen.feature;
 
-import com.example.chernobyl.api.block.CBlocks;
+import com.example.chernobyl.api.CBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;

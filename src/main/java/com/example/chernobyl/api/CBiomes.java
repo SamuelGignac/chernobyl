@@ -1,5 +1,5 @@
 
-package com.example.chernobyl.api.biome;
+package com.example.chernobyl.api;
 
 import com.example.chernobyl.Chernobyl;
 import com.google.common.collect.ImmutableList;

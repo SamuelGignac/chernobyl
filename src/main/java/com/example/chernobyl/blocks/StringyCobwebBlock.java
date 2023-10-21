@@ -1,6 +1,6 @@
 package com.example.chernobyl.blocks;
 
-import com.example.chernobyl.api.block.CBlocks;
+import com.example.chernobyl.api.CBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
