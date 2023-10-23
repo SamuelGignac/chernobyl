@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures" : {
+    "icon": "chernobyl:textures/gui/chernobyl.png",
+    "layer0" : "chernobyl:textures/gui/chernobyl.png"
+  }
+}
