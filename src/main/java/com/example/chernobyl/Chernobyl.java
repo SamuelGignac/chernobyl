@@ -86,7 +86,7 @@ public class Chernobyl
         BLOCK_ENTITY_REGISTER.register(modEventBus);
         CREATIVE_TAB_REGISTER.register(modEventBus);
         ITEM_REGISTER.register(modEventBus);
-//        PARTICLES_REGISTER.register(modEventBus);
+        PARTICLES_REGISTER.register(modEventBus);
 //        SOUND_EVENT_REGISTER.register(modEventBus);
 //        DAMAGE_TYPE_REGISTER.register(modEventBus);
 
@@ -95,6 +95,7 @@ public class Chernobyl
 
         ModBlocks.setup();
         ModItems.setup();
+        ModParticles.setup();
 //        ModBiomes.setup();
 
         // Initialize the creative tab last after blocks and items have been setup
