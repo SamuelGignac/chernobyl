@@ -1,37 +1,25 @@
 package com.example.chernobyl;
 
-import com.example.chernobyl.init.*;
+import com.example.chernobyl.init.ModBlocks;
+import com.example.chernobyl.init.ModCreativeTab;
+import com.example.chernobyl.init.ModItems;
+import com.example.chernobyl.init.ModTags;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
-import net.minecraft.world.level.levelgen.carver.WorldCarver;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -50,11 +38,9 @@ public class Chernobyl
     public Chernobyl()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::loadComplete);
 
-        // Register events for deferred registers
         BLOCK_REGISTER.register(modEventBus);
         BLOCK_ENTITY_REGISTER.register(modEventBus);
         CREATIVE_TAB_REGISTER.register(modEventBus);
@@ -63,13 +49,7 @@ public class Chernobyl
         ModBlocks.setup();
         ModItems.setup();
 
-        // Initialize the creative tab last after blocks and items have been setup
         ModCreativeTab.setup();
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-//        event.enqueueWork(ModBiomes::setupTerraBlender);
     }
 
     private void clientSetup(final FMLClientSetupEvent event)
