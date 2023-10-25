@@ -14,8 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Supplier;
 
 import static com.example.chernobyl.api.CBlocks.*;
-import static net.minecraft.world.level.block.Blocks.COBBLESTONE;
-import static net.minecraft.world.level.block.Blocks.DIAMOND_ORE;
+import static net.minecraft.world.level.block.Blocks.*;
 
 public class ModBlocks
 {
@@ -36,10 +35,15 @@ public class ModBlocks
                 () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(DIAMOND_ORE), UniformInt.of(3,6)),
                 "uranium_ore");
 
+        NUCLEAR_BOMB = registerBlock(
+                () -> new Block(BlockBehaviour.Properties.copy(TNT)),
+                () -> new BlockItem(NUCLEAR_BOMB.get(), new Item.Properties()),
+                "nuclear_bomb"
+        );
+
         RANDOM_BLOCK = registerBlock(
                 () -> new Block(BlockBehaviour.Properties.copy(COBBLESTONE)),
                 "random_block");
-
     }
 
     public static RegistryObject<Block> registerBlock(Supplier<Block> blockSupplier, String name)

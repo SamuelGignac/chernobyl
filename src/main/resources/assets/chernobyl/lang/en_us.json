@@ -3,5 +3,6 @@
   "item.chernobyl.uranium" : "Uranium",
   "block.chernobyl.uranium_ore" : "Uranium Ore",
   "item.chernobyl.plutonium" : "Plutonium",
-  "block.chernobyl.plutonium_ore" : "Plutonium Ore"
+  "block.chernobyl.plutonium_ore" : "Plutonium Ore",
+  "block.chernobyl.nuclear_bomb" : "Nuclear Bomb"
 }

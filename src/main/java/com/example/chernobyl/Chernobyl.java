@@ -6,6 +6,7 @@ import com.example.chernobyl.init.ModItems;
 import com.example.chernobyl.init.ModTags;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -22,6 +23,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
+import static com.example.chernobyl.api.CBlocks.NUCLEAR_BOMB;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Chernobyl.MODID)
 public class Chernobyl
@@ -34,7 +37,6 @@ public class Chernobyl
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_REGISTER = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TAB_REGISTER = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-
     public Chernobyl()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -45,6 +47,9 @@ public class Chernobyl
         BLOCK_ENTITY_REGISTER.register(modEventBus);
         CREATIVE_TAB_REGISTER.register(modEventBus);
         ITEM_REGISTER.register(modEventBus);
+
+//        Add recipes
+
 
         ModBlocks.setup();
         ModItems.setup();

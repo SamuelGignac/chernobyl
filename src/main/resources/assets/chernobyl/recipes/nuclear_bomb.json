@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "RTR",
+    "IRI"
+  ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "R": {
+        "item": "minecraft:redstone_dust"
+      },
+      "T": {
+        "item": "minecraft:tnt"
+      }
+    },
+    "result": {
+        "item": "chernobyl:nuclear_bomb"
+    }
+}
