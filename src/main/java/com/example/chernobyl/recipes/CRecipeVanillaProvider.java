@@ -1,6 +1,7 @@
 package com.example.chernobyl.recipes;
 
 import com.example.chernobyl.api.CBlocks;
+import com.example.chernobyl.api.CItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -21,14 +22,11 @@ public class CRecipeVanillaProvider extends VanillaRecipeProvider {
     @Override
     public void buildRecipes(Consumer<FinishedRecipe> consumer) {
         super.buildRecipes(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, CBlocks.NUCLEAR_BOMB.get(), 1)
-                .pattern("III")
-                .pattern("RTR")
-                .pattern("III")
-                .define('I', Ingredient.of(Items.IRON_INGOT, Blocks.IRON_BLOCK))
-                .define('R', Ingredient.of(Items.REDSTONE_BLOCK))
-                .define('T', Ingredient.of(Items.TNT))
-                .unlockedBy("has_tnt", has(Items.TNT))
-                .save(consumer);
+        RegisterCRecipes(consumer);
+    }
+
+    private void RegisterCRecipes(Consumer<FinishedRecipe> consumer){
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, CBlocks.NUCLEAR_BOMB.get(), 1).pattern("III").pattern("RTR").pattern("III").define('I', Ingredient.of(Items.IRON_INGOT, Blocks.IRON_BLOCK)).define('R', Ingredient.of(Items.REDSTONE_BLOCK)).define('T', Ingredient.of(Items.TNT)).unlockedBy("has_tnt", has(Items.TNT)).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, CItems.GEIGER_COUNTER.get(), 1).pattern("III").pattern("RTR").pattern("III").define('I', Ingredient.of(Items.IRON_INGOT, Blocks.IRON_BLOCK)).define('R', Ingredient.of(Items.REDSTONE_BLOCK)).define('T', Ingredient.of(Items.TNT)).unlockedBy("has_tnt", has(Items.TNT)).save(consumer);
     }
 }
