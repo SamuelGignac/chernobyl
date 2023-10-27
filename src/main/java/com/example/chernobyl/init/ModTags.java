@@ -22,8 +22,6 @@ public class ModTags
     public static class Blocks
     {
         private static void setup() {}
-
-        public static final TagKey<Block> FLESH = BlockTags.create(new ResourceLocation(Chernobyl.MODID, "flesh"));
     }
 
     public static class Fluids
