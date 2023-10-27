@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class CRecipeSerializer implements RecipeSerializer<CRecipe> {
     public static CRecipeSerializer INSTANCE;
-
+    
     @Override
     public CRecipe fromJson(ResourceLocation p_44103_, JsonObject p_44104_) {
         return null;

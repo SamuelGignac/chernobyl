@@ -1,4 +1,5 @@
 {
+  "pack.chernobyl.description": "This is the description",
   "item.chernobyl.c_icon" : "Chernobyl",
   "item.chernobyl.uranium" : "Uranium",
   "block.chernobyl.uranium_ore" : "Uranium Ore",
