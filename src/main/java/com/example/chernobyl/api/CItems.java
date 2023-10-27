@@ -12,12 +12,14 @@ public class CItems
 
     public static RegistryObject<Item> PLUTONIUM;
     public static RegistryObject<Item> URANIUM;
+    public static RegistryObject<Item> GEIGER_COUNTER;
 
     public static List<RegistryObject<Item>> getRegisteredItem() {
         return List.of(
                 C_ICON,
                 PLUTONIUM,
-                URANIUM
+                URANIUM,
+                GEIGER_COUNTER
         );
     }
 }

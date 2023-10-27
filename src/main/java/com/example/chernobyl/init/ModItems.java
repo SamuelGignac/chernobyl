@@ -22,6 +22,7 @@ public class ModItems
 
         PLUTONIUM = registerItem(() -> new Item(new Item.Properties()), "plutonium");
         URANIUM = registerItem(() -> new Item(new Item.Properties()), "uranium");
+        GEIGER_COUNTER = registerItem(() -> new Item(new Item.Properties().stacksTo(5)), "geiger_counter");
     }
 
     public static RegistryObject<Item> registerItem(Supplier<Item> itemSupplier, String name)
