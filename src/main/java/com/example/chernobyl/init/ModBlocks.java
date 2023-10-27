@@ -1,12 +1,14 @@
 
 package com.example.chernobyl.init;
 
+import com.example.chernobyl.Blocks.NuclearBombBlock;
 import com.example.chernobyl.Chernobyl;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.RegistryObject;
@@ -36,12 +38,13 @@ public class ModBlocks
                 "uranium_ore");
 
         BOMB_FRAME = registerBlock(
-                () -> new Block(BlockBehaviour.Properties.copy(TNT)),
+                () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava()),
                 () -> new BlockItem(BOMB_FRAME.get(), new Item.Properties()),
                 "nuclear_bomb"
         );
+//        TODO: Change to NuclearBombBlock
         NUCLEAR_BOMB = registerBlock(
-                () -> new Block(BlockBehaviour.Properties.copy(TNT)),
+                () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava()),
                 () -> new BlockItem(NUCLEAR_BOMB.get(), new Item.Properties()),
                 "nuclear_bomb");
 
