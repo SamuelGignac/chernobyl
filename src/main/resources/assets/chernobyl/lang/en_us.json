@@ -5,5 +5,6 @@
   "block.chernobyl.uranium_ore" : "Uranium Ore",
   "item.chernobyl.plutonium" : "Plutonium",
   "block.chernobyl.plutonium_ore" : "Plutonium Ore",
-  "block.chernobyl.nuclear_bomb" : "Nuclear Bomb"
+  "block.chernobyl.nuclear_bomb" : "Nuclear Bomb",
+  "item.chernobyl.geiger_counter" : "Geiger Counter"
 }

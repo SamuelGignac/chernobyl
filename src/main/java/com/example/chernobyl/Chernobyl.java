@@ -4,18 +4,14 @@ import com.example.chernobyl.init.ModBlocks;
 import com.example.chernobyl.init.ModCreativeTab;
 import com.example.chernobyl.init.ModItems;
 import com.example.chernobyl.init.ModTags;
-import com.example.chernobyl.recipes.CRecipeVanillaProvider;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -44,8 +40,6 @@ public class Chernobyl
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::loadComplete);
 
-//        modEventBus.addListener(this::gatherData);
-
         BLOCK_REGISTER.register(modEventBus);
         BLOCK_ENTITY_REGISTER.register(modEventBus);
         CREATIVE_TAB_REGISTER.register(modEventBus);
@@ -55,16 +49,6 @@ public class Chernobyl
         ModItems.setup();
 
         ModCreativeTab.setup();
-    }
-
-    private void gatherData(GatherDataEvent event) {
-        DataGenerator gen = event.getGenerator();
-        PackOutput packOutput = gen.getPackOutput();
-
-        CRecipeVanillaProvider recipeVanillaProvider = new CRecipeVanillaProvider(packOutput);
-
-        gen.addProvider(event.includeServer(), recipeVanillaProvider);
-        gen.addProvider(event.includeClient(), recipeVanillaProvider);
     }
 
     private void clientSetup(final FMLClientSetupEvent event)
