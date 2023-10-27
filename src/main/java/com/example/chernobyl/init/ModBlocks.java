@@ -35,11 +35,15 @@ public class ModBlocks
                 () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(DIAMOND_ORE), UniformInt.of(3,6)),
                 "uranium_ore");
 
+        BOMB_FRAME = registerBlock(
+                () -> new Block(BlockBehaviour.Properties.copy(TNT)),
+                () -> new BlockItem(BOMB_FRAME.get(), new Item.Properties()),
+                "nuclear_bomb"
+        );
         NUCLEAR_BOMB = registerBlock(
                 () -> new Block(BlockBehaviour.Properties.copy(TNT)),
                 () -> new BlockItem(NUCLEAR_BOMB.get(), new Item.Properties()),
-                "nuclear_bomb"
-        );
+                "nuclear_bomb");
 
         RANDOM_BLOCK = registerBlock(
                 () -> new Block(BlockBehaviour.Properties.copy(COBBLESTONE)),
