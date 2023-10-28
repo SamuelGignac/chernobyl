@@ -1,11 +1,12 @@
 package com.example.chernobyl.Blocks;
 
-import com.example.chernobyl.api.CBlocks;
+import com.example.chernobyl.sound.LoopSound;
+import com.example.chernobyl.sound.ModSounds;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -19,7 +20,6 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -30,9 +30,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
-import java.util.List;
-
-import static com.example.chernobyl.sound.ModSounds.*;
+import static com.example.chernobyl.sound.ModSounds.NUKE_COUNTDOWN;
 
 public class NuclearBombBlock extends Block {
     public static final String name = "nuclear_bomb";
@@ -98,6 +96,9 @@ public class NuclearBombBlock extends Block {
 
     public InteractionResult use(BlockState p_57450_, Level p_57451_, BlockPos p_57452_, Player p_57453_, InteractionHand p_57454_, BlockHitResult p_57455_) {
         ItemStack itemstack = p_57453_.getItemInHand(p_57454_);
+
+        Minecraft.getInstance().getSoundManager().play(new LoopSound(NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, p_57453_, RandomSource.create()));
+
         if (!itemstack.is(Items.FLINT_AND_STEEL) && !itemstack.is(Items.FIRE_CHARGE)) {
             return super.use(p_57450_, p_57451_, p_57452_, p_57453_, p_57454_, p_57455_);
         } else {
