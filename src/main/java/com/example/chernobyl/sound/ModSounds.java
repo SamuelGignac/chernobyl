@@ -13,6 +13,7 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Chernobyl.MODID);
 
     public static final RegistryObject<SoundEvent> GEIGER_DETECTION = registerSoundEvents("geiger_detection");
+    public static final RegistryObject<SoundEvent> NUKE_COUNTDOWN = registerSoundEvents("nuke_countdown");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Chernobyl.MODID, name)));

@@ -38,13 +38,13 @@ public class ModBlocks
                 "uranium_ore");
 
         BOMB_FRAME = registerBlock(
-                () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava()),
+                () -> new Block(BlockBehaviour.Properties.copy(COBBLESTONE)),
                 () -> new BlockItem(BOMB_FRAME.get(), new Item.Properties()),
                 "bomb_frame"
         );
-//        TODO: Change to NuclearBombBlock
+
         NUCLEAR_BOMB = registerBlock(
-                () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava()),
+                () -> new NuclearBombBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava()),
                 () -> new BlockItem(NUCLEAR_BOMB.get(), new Item.Properties()),
                 "nuclear_bomb");
 

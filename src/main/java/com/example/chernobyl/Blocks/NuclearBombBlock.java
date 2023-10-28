@@ -8,7 +8,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
@@ -28,13 +27,14 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
+import static com.example.chernobyl.sound.ModSounds.NUKE_COUNTDOWN;
+
 public class NuclearBombBlock extends Block {
     public static final String name = "nuclear_bomb";
     public static final BooleanProperty UNSTABLE = BlockStateProperties.UNSTABLE;
 
     public NuclearBombBlock(BlockBehaviour.Properties p_57422_) {
         super(p_57422_);
-        this.registerDefaultState(this.defaultBlockState().setValue(UNSTABLE, Boolean.FALSE));
     }
 
     public void onCaughtFire(BlockState state, Level world, BlockPos pos, @Nullable net.minecraft.core.Direction face, @Nullable LivingEntity igniter) {
@@ -69,24 +69,24 @@ public class NuclearBombBlock extends Block {
 
     public void wasExploded(Level p_57441_, BlockPos p_57442_, Explosion p_57443_) {
         if (!p_57441_.isClientSide) {
-            PrimedTnt primedtnt = new PrimedTnt(p_57441_, (double)p_57442_.getX() + 0.5D, (double)p_57442_.getY(), (double)p_57442_.getZ() + 0.5D, p_57443_.getIndirectSourceEntity());
-            int i = primedtnt.getFuse();
-            primedtnt.setFuse((short)(p_57441_.random.nextInt(i / 4) + i / 8));
-            p_57441_.addFreshEntity(primedtnt);
+            CPrimeNuclear cPrimeNuclear = new CPrimeNuclear(p_57441_, (double)p_57442_.getX() + 0.5D, (double)p_57442_.getY(), (double)p_57442_.getZ() + 0.5D, p_57443_.getIndirectSourceEntity());
+            int i = cPrimeNuclear.getFuse();
+            cPrimeNuclear.setFuse((short)(p_57441_.random.nextInt(i / 4) + i / 8));
+            p_57441_.addFreshEntity(cPrimeNuclear);
         }
     }
 
     @Deprecated //Forge: Prefer using IForgeBlock#catchFire
     public static void explode(Level p_57434_, BlockPos p_57435_) {
-        explode(p_57434_, p_57435_, (LivingEntity)null);
+        explode(p_57434_, p_57435_, null);
     }
 
     @Deprecated //Forge: Prefer using IForgeBlock#catchFire
     private static void explode(Level p_57437_, BlockPos p_57438_, @Nullable LivingEntity p_57439_) {
         if (!p_57437_.isClientSide) {
-            PrimedTnt primedtnt = new PrimedTnt(p_57437_, (double)p_57438_.getX() + 0.5D, (double)p_57438_.getY(), (double)p_57438_.getZ() + 0.5D, p_57439_);
-            p_57437_.addFreshEntity(primedtnt);
-            p_57437_.playSound((Player)null, primedtnt.getX(), primedtnt.getY(), primedtnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
+            CPrimeNuclear cPrimeNuclear = new CPrimeNuclear(p_57437_, (double)p_57438_.getX() + 0.5D, p_57438_.getY(), (double)p_57438_.getZ() + 0.5D, p_57439_);
+            p_57437_.addFreshEntity(cPrimeNuclear);
+            p_57437_.playSound((Player)null, cPrimeNuclear.getX(), cPrimeNuclear.getY(), cPrimeNuclear.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
             p_57437_.gameEvent(p_57439_, GameEvent.PRIME_FUSE, p_57438_);
         }
     }
@@ -101,9 +101,7 @@ public class NuclearBombBlock extends Block {
             Item item = itemstack.getItem();
             if (!p_57453_.isCreative()) {
                 if (itemstack.is(Items.FLINT_AND_STEEL)) {
-                    itemstack.hurtAndBreak(1, p_57453_, (p_57425_) -> {
-                        p_57425_.broadcastBreakEvent(p_57454_);
-                    });
+                    itemstack.hurtAndBreak(1, p_57453_, (p_57425_) -> p_57425_.broadcastBreakEvent(p_57454_));
                 } else {
                     itemstack.shrink(1);
                 }

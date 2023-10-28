@@ -1,5 +1,6 @@
 {
   "parent" : "block/cube_all",
+  "explosion_radius" : 10,
   "textures" : {
     "all" : "chernobyl:block/nuclear_bomb"
   }

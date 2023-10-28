@@ -4,5 +4,11 @@
     "sounds" : [
       "chernobyl:geiger_detection"
     ]
+  },
+  "nuke_countdown": {
+    "subtitles" : "sounds.chernobyl.nuke_countdown",
+    "sounds" : [
+      "chernobyl:nuke_countdown"
+    ]
   }
 }
