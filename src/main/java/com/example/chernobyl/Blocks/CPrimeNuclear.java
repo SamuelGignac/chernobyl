@@ -1,14 +1,20 @@
 package com.example.chernobyl.Blocks;
 
+import com.example.chernobyl.effect.ModEffects;
+import com.example.chernobyl.effect.RadiationEffect;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.entity.player.Player;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class CPrimeNuclear extends Entity implements TraceableEntity {
     private static final EntityDataAccessor<Integer> DATA_FUSE_ID = SynchedEntityData.defineId(CPrimeNuclear.class, EntityDataSerializers.INT);
@@ -74,7 +80,19 @@ public class CPrimeNuclear extends Entity implements TraceableEntity {
     }
 
     protected void explode() {
-        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), EXPLOSION_RADIUS, Level.ExplosionInteraction.BLOCK);
+        float explosionRadius = EXPLOSION_RADIUS;
+        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), explosionRadius, Level.ExplosionInteraction.BLOCK);
+
+        AABB boundingBox = new AABB(this.getX() - explosionRadius, this.getY() - explosionRadius, this.getZ() - explosionRadius,
+                this.getX() + explosionRadius, this.getY() + explosionRadius, this.getZ() + explosionRadius);
+        List<Entity> entities = this.level().getEntities(this, boundingBox);
+
+        for (Entity entity : entities) {
+            if (entity instanceof Player player) {
+                MobEffectInstance radiationEffect = new MobEffectInstance(ModEffects.RADIATION.get(), 500, 1);
+                player.addEffect(radiationEffect);
+            }
+        }
     }
 
     protected void addAdditionalSaveData(CompoundTag p_32097_) {
