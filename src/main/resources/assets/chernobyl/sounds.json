@@ -1,0 +1,8 @@
+{
+  "geiger_detection" : {
+    "subtitles" : "sounds.chernobyl.geiger_detection",
+    "sounds" : [
+      "chernobyl:geiger_detection"
+    ]
+  }
+}

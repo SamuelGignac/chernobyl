@@ -7,5 +7,6 @@
   "block.chernobyl.plutonium_ore" : "Plutonium Ore",
   "block.chernobyl.bomb_frame" : "Nuclear Bomb Frame",
   "block.chernobyl.nuclear_bomb" : "Nuclear Bomb",
-  "item.chernobyl.geiger_counter" : "Geiger Counter"
+  "item.chernobyl.geiger_counter" : "Geiger Counter",
+  "sounds.chernobyl.geiger_detection" : "Geiger Counter Sound"
 }
