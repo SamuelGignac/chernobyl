@@ -9,5 +9,6 @@
   "block.chernobyl.nuclear_bomb" : "Nuclear Bomb",
   "item.chernobyl.geiger_counter" : "Geiger Counter",
   "sounds.chernobyl.geiger_detection" : "Geiger Counter Sound",
-  "sounds.chernobyl.nuke_countdown" : "Ignition of nuclear bomb Sound"
+  "sounds.chernobyl.nuke_countdown" : "Ignition of nuclear bomb Sound",
+  "effect.chernobyl.radiation" : "Radiation"
 }

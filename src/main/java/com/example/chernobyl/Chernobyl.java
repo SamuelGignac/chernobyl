@@ -1,5 +1,6 @@
 package com.example.chernobyl;
 
+import com.example.chernobyl.effect.ModEffects;
 import com.example.chernobyl.init.ModBlocks;
 import com.example.chernobyl.init.ModCreativeTab;
 import com.example.chernobyl.init.ModItems;
@@ -46,6 +47,7 @@ public class Chernobyl
         CREATIVE_TAB_REGISTER.register(modEventBus);
         ITEM_REGISTER.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
+        ModEffects.MOB_EFFECTS.register(modEventBus);
 
         ModBlocks.setup();
         ModItems.setup();
