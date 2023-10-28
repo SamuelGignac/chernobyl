@@ -27,7 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
-import static com.example.chernobyl.sound.ModSounds.NUKE_COUNTDOWN;
+import static com.example.chernobyl.sound.ModSounds.*;
 
 public class NuclearBombBlock extends Block {
     public static final String name = "nuclear_bomb";
@@ -86,7 +86,7 @@ public class NuclearBombBlock extends Block {
         if (!p_57437_.isClientSide) {
             CPrimeNuclear cPrimeNuclear = new CPrimeNuclear(p_57437_, (double)p_57438_.getX() + 0.5D, p_57438_.getY(), (double)p_57438_.getZ() + 0.5D, p_57439_);
             p_57437_.addFreshEntity(cPrimeNuclear);
-            p_57437_.playSound((Player)null, cPrimeNuclear.getX(), cPrimeNuclear.getY(), cPrimeNuclear.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+            p_57437_.playSound(null, cPrimeNuclear.getX(), cPrimeNuclear.getY(), cPrimeNuclear.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
             p_57437_.gameEvent(p_57439_, GameEvent.PRIME_FUSE, p_57438_);
         }
     }
