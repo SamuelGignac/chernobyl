@@ -34,7 +34,7 @@ public class NuclearBombBlock extends Block {
 
     public NuclearBombBlock(BlockBehaviour.Properties p_57422_) {
         super(p_57422_);
-        this.registerDefaultState(this.defaultBlockState().setValue(UNSTABLE, Boolean.valueOf(false)));
+        this.registerDefaultState(this.defaultBlockState().setValue(UNSTABLE, Boolean.FALSE));
     }
 
     public void onCaughtFire(BlockState state, Level world, BlockPos pos, @Nullable net.minecraft.core.Direction face, @Nullable LivingEntity igniter) {
