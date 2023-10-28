@@ -4,6 +4,7 @@ import com.example.chernobyl.init.ModBlocks;
 import com.example.chernobyl.init.ModCreativeTab;
 import com.example.chernobyl.init.ModItems;
 import com.example.chernobyl.init.ModTags;
+import com.example.chernobyl.sound.ModSounds;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -44,6 +45,7 @@ public class Chernobyl
         BLOCK_ENTITY_REGISTER.register(modEventBus);
         CREATIVE_TAB_REGISTER.register(modEventBus);
         ITEM_REGISTER.register(modEventBus);
+        ModSounds.SOUND_EVENTS.register(modEventBus);
 
         ModBlocks.setup();
         ModItems.setup();
