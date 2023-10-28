@@ -44,7 +44,7 @@ public class ModBlocks
         );
 
         NUCLEAR_BOMB = registerBlock(
-                () -> new NuclearBombBlock(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava()),
+                () -> new NuclearBombBlock(BlockBehaviour.Properties.copy(TNT)),
                 () -> new BlockItem(NUCLEAR_BOMB.get(), new Item.Properties()),
                 "nuclear_bomb");
 

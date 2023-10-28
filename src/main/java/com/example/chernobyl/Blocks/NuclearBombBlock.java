@@ -1,6 +1,8 @@
 package com.example.chernobyl.Blocks;
 
+import com.example.chernobyl.api.CBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -26,6 +29,8 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
+
+import java.util.List;
 
 import static com.example.chernobyl.sound.ModSounds.*;
 
@@ -120,6 +125,8 @@ public class NuclearBombBlock extends Block {
                 onCaughtFire(p_57430_, p_57429_, blockpos, null, entity instanceof LivingEntity ? (LivingEntity)entity : null);
                 p_57429_.removeBlock(blockpos, false);
             }
+//            TODO: Create new Potions
+            p_57429_.createFireworks(blockpos.getX(), blockpos.getY(), blockpos.getZ(), 0, 0, 0, null);
         }
 
     }

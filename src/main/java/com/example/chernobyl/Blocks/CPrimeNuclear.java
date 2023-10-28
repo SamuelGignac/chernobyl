@@ -74,7 +74,7 @@ public class CPrimeNuclear extends Entity implements TraceableEntity {
     }
 
     protected void explode() {
-        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), EXPLOSION_RADIUS, Level.ExplosionInteraction.TNT);
+        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), EXPLOSION_RADIUS, Level.ExplosionInteraction.BLOCK);
     }
 
     protected void addAdditionalSaveData(CompoundTag p_32097_) {
