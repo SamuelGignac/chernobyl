@@ -1,0 +1,27 @@
+{
+  "display" : {
+    "icon" : {
+      "item" : "chernobyl:nuclear_bomb"
+    },
+    "title" : "Now I Am Become Death, the Destroyer of Worlds.",
+    "description" : "Has acquired the bomb.",
+    "frame" : "task",
+    "show_toast" : true,
+    "announce_to_chat" : true,
+    "background" : "chernobyl:textures/block/nuclear_bomb.png"
+  },
+  "criteria" : {
+    "requirement" : {
+      "trigger" : "minecraft:inventory_changed",
+      "conditions" : {
+        "items" : [
+          {
+            "items" : [
+              "chernobyl:nuclear_bomb"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
