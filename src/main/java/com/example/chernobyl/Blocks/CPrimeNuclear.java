@@ -19,7 +19,7 @@ import java.util.List;
 public class CPrimeNuclear extends Entity implements TraceableEntity {
     private static final EntityDataAccessor<Integer> DATA_FUSE_ID = SynchedEntityData.defineId(CPrimeNuclear.class, EntityDataSerializers.INT);
     private static final int DEFAULT_FUSE_TIME = 80;
-    private static final float EXPLOSION_RADIUS = 100.0F;
+    private static final float EXPLOSION_RADIUS = 200.0F;
     @Nullable
     private LivingEntity owner;
 

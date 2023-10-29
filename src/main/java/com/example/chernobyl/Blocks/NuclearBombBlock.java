@@ -89,7 +89,7 @@ public class NuclearBombBlock extends Block {
         if (!p_57437_.isClientSide) {
             CPrimeNuclear cPrimeNuclear = new CPrimeNuclear(p_57437_, (double)p_57438_.getX() + 0.5D, p_57438_.getY(), (double)p_57438_.getZ() + 0.5D, p_57439_);
             p_57437_.addFreshEntity(cPrimeNuclear);
-            p_57437_.playSeededSound(null, p_57438_.getX(), p_57438_.getY(), p_57438_.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, 1f, 1f, 0);
+            p_57437_.playSeededSound(null, p_57438_.getX(), p_57438_.getY(), p_57438_.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, 10f, 1f, 0);
             p_57437_.gameEvent(p_57439_, GameEvent.PRIME_FUSE, p_57438_);
         }
     }
