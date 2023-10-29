@@ -35,6 +35,7 @@ import static com.example.chernobyl.sound.ModSounds.NUKE_COUNTDOWN;
 public class NuclearBombBlock extends Block {
     public static final String name = "nuclear_bomb";
     public static final BooleanProperty UNSTABLE = BlockStateProperties.UNSTABLE;
+    private static final float SOUND_VOLUME = 10f;
 
     public NuclearBombBlock(BlockBehaviour.Properties p_57422_) {
         super(p_57422_);
@@ -89,7 +90,7 @@ public class NuclearBombBlock extends Block {
         if (!p_57437_.isClientSide) {
             CPrimeNuclear cPrimeNuclear = new CPrimeNuclear(p_57437_, (double)p_57438_.getX() + 0.5D, p_57438_.getY(), (double)p_57438_.getZ() + 0.5D, p_57439_);
             p_57437_.addFreshEntity(cPrimeNuclear);
-            p_57437_.playSeededSound(null, p_57438_.getX(), p_57438_.getY(), p_57438_.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, 10f, 1f, 0);
+            p_57437_.playSeededSound(null, p_57438_.getX(), p_57438_.getY(), p_57438_.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, SOUND_VOLUME, 1f, 0);
             p_57437_.gameEvent(p_57439_, GameEvent.PRIME_FUSE, p_57438_);
         }
     }
