@@ -89,15 +89,13 @@ public class NuclearBombBlock extends Block {
         if (!p_57437_.isClientSide) {
             CPrimeNuclear cPrimeNuclear = new CPrimeNuclear(p_57437_, (double)p_57438_.getX() + 0.5D, p_57438_.getY(), (double)p_57438_.getZ() + 0.5D, p_57439_);
             p_57437_.addFreshEntity(cPrimeNuclear);
-            p_57437_.playSound(null, cPrimeNuclear.getX(), cPrimeNuclear.getY(), cPrimeNuclear.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+            p_57437_.playSeededSound(null, p_57438_.getX(), p_57438_.getY(), p_57438_.getZ(), NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, 1f, 1f, 0);
             p_57437_.gameEvent(p_57439_, GameEvent.PRIME_FUSE, p_57438_);
         }
     }
 
     public InteractionResult use(BlockState p_57450_, Level p_57451_, BlockPos p_57452_, Player p_57453_, InteractionHand p_57454_, BlockHitResult p_57455_) {
         ItemStack itemstack = p_57453_.getItemInHand(p_57454_);
-
-        Minecraft.getInstance().getSoundManager().play(new LoopSound(NUKE_COUNTDOWN.get(), SoundSource.BLOCKS, p_57453_, RandomSource.create()));
 
         if (!itemstack.is(Items.FLINT_AND_STEEL) && !itemstack.is(Items.FIRE_CHARGE)) {
             return super.use(p_57450_, p_57451_, p_57452_, p_57453_, p_57454_, p_57455_);
