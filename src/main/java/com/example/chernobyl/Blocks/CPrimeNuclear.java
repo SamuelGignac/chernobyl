@@ -100,7 +100,7 @@ public class CPrimeNuclear extends Entity implements TraceableEntity {
                 new BlockPos((int) boundingBox.maxX, (int) boundingBox.maxY, (int) boundingBox.maxZ))) {
             BlockState currentState = this.level().getBlockState(blockPos);
 
-//            TODO: Changer le diamètre de l'explosion
+//            TODO: Changer le diamètre de l'explosion ? (pt pas finalement)
 //                  Changer pour faire en sorte quon change seulement les blocs les plus haut
 //                  Changer les propriété de NUKE_PARTICLE pour qu'il tombe comme le gravié
             if (currentState.isAir()) {
