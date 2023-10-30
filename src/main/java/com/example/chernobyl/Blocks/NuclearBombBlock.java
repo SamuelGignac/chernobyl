@@ -1,5 +1,6 @@
 package com.example.chernobyl.Blocks;
 
+import com.example.chernobyl.api.CBlocks;
 import com.example.chernobyl.sound.LoopSound;
 import com.example.chernobyl.sound.ModSounds;
 import net.minecraft.client.Minecraft;
@@ -102,7 +103,7 @@ public class NuclearBombBlock extends Block {
             return super.use(p_57450_, p_57451_, p_57452_, p_57453_, p_57454_, p_57455_);
         } else {
             onCaughtFire(p_57450_, p_57451_, p_57452_, p_57455_.getDirection(), p_57453_);
-            p_57451_.setBlock(p_57452_, Blocks.AIR.defaultBlockState(), 11);
+            p_57451_.setBlock(p_57452_, CBlocks.NUKE_PARTICLE.get().defaultBlockState(), 11);
             Item item = itemstack.getItem();
             if (!p_57453_.isCreative()) {
                 if (itemstack.is(Items.FLINT_AND_STEEL)) {
@@ -125,8 +126,6 @@ public class NuclearBombBlock extends Block {
                 onCaughtFire(p_57430_, p_57429_, blockpos, null, entity instanceof LivingEntity ? (LivingEntity)entity : null);
                 p_57429_.removeBlock(blockpos, false);
             }
-//            TODO: Create new Potions
-            p_57429_.createFireworks(blockpos.getX(), blockpos.getY(), blockpos.getZ(), 0, 0, 0, null);
         }
 
     }

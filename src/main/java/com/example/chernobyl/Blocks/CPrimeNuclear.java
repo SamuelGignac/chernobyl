@@ -1,7 +1,9 @@
 package com.example.chernobyl.Blocks;
 
+import com.example.chernobyl.api.CBlocks;
 import com.example.chernobyl.effect.ModEffects;
 import com.example.chernobyl.effect.RadiationEffect;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -10,10 +12,13 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.entity.player.Player;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CPrimeNuclear extends Entity implements TraceableEntity {
@@ -85,12 +90,21 @@ public class CPrimeNuclear extends Entity implements TraceableEntity {
 
         AABB boundingBox = new AABB(this.getX() - explosionRadius, this.getY() - explosionRadius, this.getZ() - explosionRadius,
                 this.getX() + explosionRadius, this.getY() + explosionRadius, this.getZ() + explosionRadius);
-        List<Entity> entities = this.level().getEntities(this, boundingBox);
 
-        for (Entity entity : entities) {
-            if (entity instanceof Player player) {
-                MobEffectInstance radiationEffect = new MobEffectInstance(ModEffects.RADIATION.get(), 500, 1);
-                player.addEffect(radiationEffect);
+        List<Player> players = this.level().getEntitiesOfClass(Player.class, boundingBox);
+        for (Player player : players) {
+            player.addEffect(new MobEffectInstance(ModEffects.RADIATION.get(), 500, 1));
+        }
+
+        for (BlockPos blockPos: BlockPos.betweenClosed(new BlockPos((int) boundingBox.minX, (int) boundingBox.minY, (int) boundingBox.minZ),
+                new BlockPos((int) boundingBox.maxX, (int) boundingBox.maxY, (int) boundingBox.maxZ))) {
+            BlockState currentState = this.level().getBlockState(blockPos);
+
+//            TODO: Changer le diamètre de l'explosion
+//                  Changer pour faire en sorte quon change seulement les blocs les plus haut
+//                  Changer les propriété de NUKE_PARTICLE pour qu'il tombe comme le gravié
+            if (currentState.isAir()) {
+                this.level().setBlock(blockPos, CBlocks.NUKE_PARTICLE.get().defaultBlockState(), 11);
             }
         }
     }
