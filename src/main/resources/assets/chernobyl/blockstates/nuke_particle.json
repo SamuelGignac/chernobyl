@@ -1,0 +1,7 @@
+{
+  "variants" : {
+    "" : {
+      "model" : "chernobyl:block/nuke_particle"
+    }
+  }
+}

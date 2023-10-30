@@ -19,6 +19,7 @@ public class ModCreativeModTabs {
             () -> new ItemStack(CItems.URANIUM.get()))
             .title(Component.translatable("creativetab.chernobyl_tab"))
             .displayItems((pParameters, pOutput) -> {
+                pOutput.accept(CBlocks.NUKE_PARTICLE.get());
                 pOutput.accept(CBlocks.URANIUM_ORE.get());
                 pOutput.accept(CBlocks.PLUTONIUM_ORE.get());
                 pOutput.accept(CItems.URANIUM.get());

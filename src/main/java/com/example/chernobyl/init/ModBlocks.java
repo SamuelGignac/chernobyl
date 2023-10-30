@@ -48,8 +48,13 @@ public class ModBlocks
                 () -> new BlockItem(NUCLEAR_BOMB.get(), new Item.Properties()),
                 "nuclear_bomb");
 
+        NUKE_PARTICLE = registerBlock(
+                () -> new Block(BlockBehaviour.Properties.copy(AIR)),
+                () -> new BlockItem(NUKE_PARTICLE.get(), new Item.Properties()),
+                "nuke_particle");
+
         RANDOM_BLOCK = registerBlock(
-                () -> new Block(BlockBehaviour.Properties.copy(COBBLESTONE)),
+                () -> new Block(BlockBehaviour.Properties.of().air().instabreak()),
                 "random_block");
     }
 
