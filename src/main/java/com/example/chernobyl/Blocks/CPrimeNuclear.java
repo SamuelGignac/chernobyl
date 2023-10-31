@@ -96,11 +96,11 @@ public class CPrimeNuclear extends Entity implements TraceableEntity {
             player.addEffect(new MobEffectInstance(ModEffects.RADIATION.get(), 500, 1));
         }
 
-        for (BlockPos blockPos: BlockPos.betweenClosed(new BlockPos((int) boundingBox.minX, (int) boundingBox.minY, (int) boundingBox.minZ),
-                new BlockPos((int) boundingBox.maxX, (int) boundingBox.maxY, (int) boundingBox.maxZ))) {
+        for (BlockPos blockPos: BlockPos.betweenClosed(new BlockPos((int) boundingBox.minX/2, (int) boundingBox.maxY, (int) boundingBox.minZ/2),
+                new BlockPos((int) boundingBox.maxX/2, (int) boundingBox.maxY, (int) boundingBox.maxZ/2))) {
             BlockState currentState = this.level().getBlockState(blockPos);
 
-//            TODO: Changer le diamètre de l'explosion ? (pt pas finalement)
+//            TODO:
 //                  Changer pour faire en sorte quon change seulement les blocs les plus haut
 //                  Changer les propriété de NUKE_PARTICLE pour qu'il tombe comme le gravié
             if (currentState.isAir()) {

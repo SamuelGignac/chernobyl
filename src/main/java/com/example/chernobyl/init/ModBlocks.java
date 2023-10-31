@@ -2,6 +2,7 @@
 package com.example.chernobyl.init;
 
 import com.example.chernobyl.Blocks.NuclearBombBlock;
+import com.example.chernobyl.Blocks.NukeParticleBlock;
 import com.example.chernobyl.Chernobyl;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -49,7 +50,7 @@ public class ModBlocks
                 "nuclear_bomb");
 
         NUKE_PARTICLE = registerBlock(
-                () -> new Block(BlockBehaviour.Properties.copy(AIR)),
+                () -> new NukeParticleBlock(BlockBehaviour.Properties.copy(SAND).noCollission()),
                 () -> new BlockItem(NUKE_PARTICLE.get(), new Item.Properties()),
                 "nuke_particle");
 
