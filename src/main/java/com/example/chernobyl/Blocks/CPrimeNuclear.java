@@ -93,16 +93,14 @@ public class CPrimeNuclear extends Entity implements TraceableEntity {
 
         List<Player> players = this.level().getEntitiesOfClass(Player.class, boundingBox);
         for (Player player : players) {
-            player.addEffect(new MobEffectInstance(ModEffects.RADIATION.get(), 500, 1));
+            player.addEffect(new MobEffectInstance(ModEffects.RADIATION.get(), (int) explosionRadius, 1));
         }
 
-        for (BlockPos blockPos: BlockPos.betweenClosed(new BlockPos((int) boundingBox.minX/2, (int) boundingBox.maxY, (int) boundingBox.minZ/2),
-                new BlockPos((int) boundingBox.maxX/2, (int) boundingBox.maxY, (int) boundingBox.maxZ/2))) {
+        for (BlockPos blockPos: BlockPos.betweenClosed(new BlockPos((int) ((int) this.getX()+explosionRadius/10), (int) this.getY(0.0625D)+100, (int) ((int) this.getZ()+explosionRadius/10)),
+                new BlockPos((int) ((int) this.getX()-explosionRadius/10), (int) this.getY(0.0625D)+100, (int) ((int) this.getZ()-explosionRadius/10)))) {
             BlockState currentState = this.level().getBlockState(blockPos);
 
-//            TODO:
-//                  Changer pour faire en sorte quon change seulement les blocs les plus haut
-//                  Changer les propriété de NUKE_PARTICLE pour qu'il tombe comme le gravié
+
             if (currentState.isAir()) {
                 this.level().setBlock(blockPos, CBlocks.NUKE_PARTICLE.get().defaultBlockState(), 11);
             }

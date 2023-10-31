@@ -55,7 +55,7 @@ public class ModBlocks
                 "nuke_particle");
 
         RANDOM_BLOCK = registerBlock(
-                () -> new Block(BlockBehaviour.Properties.of().air().instabreak()),
+                () -> new Block(BlockBehaviour.Properties.copy(BEACON)),
                 "random_block");
     }
 
