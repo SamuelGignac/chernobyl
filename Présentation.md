@@ -34,17 +34,22 @@
 
 # Nouvelle Techologie
 1. À quoi sert-elle / comment marche-t-elle?
+
 La librairie Minecraft Forge est utile pour permettre notre propre implémentation du programme complet de vanilla minecraft (Le normal).
 * Avoir une classe principale
 * Mettre la notation @Mod(MODID)
 * Créer un constructeur avec tout les éléments que nous voulons dans notre mod minecraft en utilisant le ModEventBus
 
 2. Comment avez-vous trouvé cette nouvelle technologie?, Pensez-vous toujours que c’est un bon choix pour votre projet?​
+
 Pour trouver la librairie c'est une simple recherche google et c'était le seul choix pour minecraft java edition
-4. La recommanderiez-vous aux autres étudiants, et pourquoi?
+3. La recommanderiez-vous aux autres étudiants, et pourquoi?
+
 Oui, mais non. C'est très difficile d'apprendre au départ: Pas de documentation claire, Pas beaucoup d'exemple de code, pas de tutoriel
 # Conclusion
 1. Avez-vous eu des difficultés avec les autres technologies utilisées?
+
 Nous avons utiliser du JSON aussi et c'est la position du fichier qui n'était pas toujours claire
-1. Pensez-vous que vous auriez dû choisir autre chose?
+2. Pensez-vous que vous auriez dû choisir autre chose?
+
 Un autre projet complètement, mais heureux de l'avoir fait 
